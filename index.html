@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover original short stories across romance, fantasy, mystery, adventure, and more.">
+  <title>StoryVerse | Read Your Next Favorite</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="stories.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="StoryVerse home"><span class="brand-mark">✦</span> StoryVerse</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="active" href="index.html">Discover</a>
+      <a href="#genres">Genres</a>
+      <a href="#library">Library</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <button id="themeToggle" class="icon-button" type="button" aria-label="Switch color theme" title="Switch color theme">☾</button>
+      <a class="small-cta" href="#library">Start Reading <span>↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Stories that stay<br><span>with you.</span></h1>
+        <p class="hero-text">Step into new worlds, meet unforgettable characters, and find a story that feels like it was written just for you.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#library">Explore Stories <span>→</span></a>
+          <a class="text-link" href="#about">Discover StoryVerse <span>↗</span></a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>30</strong><span>Original stories</span></div>
+          <div><strong>10+</strong><span>Genres & moods</span></div>
+          <div><strong>∞</strong><span>Places to imagine</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Featured book covers">
+        <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+        <div class="floating-note">A little escape<br>for your imagination ✨</div>
+        <img class="hero-book hero-book-back" src="images/cover-03.svg" alt="The Hidden Kingdom book cover">
+        <img class="hero-book hero-book-mid" src="images/cover-05.svg" alt="Coffee for Two book cover">
+        <img class="hero-book hero-book-front" src="images/cover-01.svg" alt="The Last Summer book cover">
+        <span class="spark spark-one">✦</span><span class="spark spark-two">✧</span><span class="spark spark-three">✦</span>
+      </div>
+    </section>
+
+    <section class="genre-strip" id="genres" aria-label="Browse by genre">
+      <div><span class="strip-label">FIND YOUR MOOD</span><span class="strip-divider"></span></div>
+      <button class="genre-chip selected" data-genre="All" type="button">✦ All stories</button>
+      <button class="genre-chip" data-genre="Romance" type="button">♡ Romance</button>
+      <button class="genre-chip" data-genre="Fantasy" type="button">✧ Fantasy</button>
+      <button class="genre-chip" data-genre="Mystery" type="button">⌕ Mystery</button>
+      <button class="genre-chip" data-genre="Adventure" type="button">➶ Adventure</button>
+      <button class="genre-chip" data-genre="Sci-Fi" type="button">⌘ Sci-Fi</button>
+      <button class="genre-chip" data-genre="Slice of Life" type="button">☼ Slice of Life</button>
+    </section>
+
+    <section class="library-section" id="library">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE STORY COLLECTION</p><h2>Find your next <span>favorite.</span></h2><p class="section-subtitle">Thirty worlds. Thirty beginnings. Which one will you choose?</p></div>
+        <div class="library-tools">
+          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search stories..." aria-label="Search stories"></label>
+          <select id="sortSelect" aria-label="Sort stories"><option value="default">Featured</option><option value="title">Title A–Z</option><option value="genre">Genre</option></select>
+        </div>
+      </div>
+      <div class="results-line"><span id="resultCount">30 stories</span><span>ONE CHAPTER PER STORY · ALWAYS A NEW BEGINNING</span></div>
+      <div class="book-grid" id="bookGrid" aria-live="polite"></div>
+      <div class="empty-state hidden" id="emptyState"><span>✧</span><h3>No stories found</h3><p>Try another title or choose a different genre.</p><button class="secondary-button" id="resetFilters" type="button">Reset filters</button></div>
+    </section>
+
+    <section class="quote-banner">
+      <div class="quote-symbol">“</div>
+      <blockquote>Somewhere between the first page and the last, you might find a little piece of yourself.</blockquote>
+      <p>THE STORYVERSE PROMISE</p>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-icon">✦</div><div><p class="eyebrow">A HOME FOR IMAGINATION</p><h2>Every story begins<br>with <span>one page.</span></h2></div>
+      <p>StoryVerse is a storybook-inspired reading space made for curious minds. Browse original short-story concepts, explore different genres, and take a moment away from the everyday. Pick a cover, open a chapter, and let your imagination do the rest.</p>
+      <a class="primary-button" href="#library">Choose a story <span>→</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand" href="index.html"><span class="brand-mark">✦</span> StoryVerse</a><p>Made for readers, dreamers, and story collectors.</p><span>© 2026 STORYVERSE · ITE 1 PROJECT</span></footer>
+
+  <dialog id="detailsDialog" class="details-dialog">
+    <button class="dialog-close" id="closeDialog" aria-label="Close details" type="button">×</button>
+    <img id="dialogCover" src="images/cover-01.svg" alt="Book cover">
+    <div class="dialog-content"><span class="genre-label" id="dialogGenre">GENRE</span><h2 id="dialogTitle">Story title</h2><p class="dialog-author" id="dialogAuthor">By author</p><p id="dialogSynopsis"></p><a id="dialogRead" class="primary-button" href="story.html?id=1">Read story <span>→</span></a></div>
+  </dialog>
+</body>
+</html>
